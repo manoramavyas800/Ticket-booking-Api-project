@@ -1,0 +1,41 @@
+package org.telusko.ticketbookingapi.service;
+//Interface
+
+import org.telusko.ticketbookingapi.model.Passenger;
+
+public interface ITicketService {
+    Passenger registerPassenger(Passenger passenger);
+
+    Passenger fetchPassengerInfo(Integer id);
+}
+// service class
+
+package org.telusko.ticketbookingapi.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.telusko.ticketbookingapi.dao.ITicketRepo;
+import org.telusko.ticketbookingapi.model.Passenger;
+
+import java.util.Optional;
+
+@Service
+public class TicketService implements ITicketService {
+
+
+    @Autowired
+    private ITicketRepo repo;
+
+    @Override
+    public Passenger registerPassenger(Passenger passenger) {
+
+        return repo.save(passenger);
+    }
+
+    @Override
+    public Passenger fetchPassengerInfo(Integer id) {
+        Optional<Passenger> optional = repo.findById(id);
+        return optional.get();
+    }
+
+}
