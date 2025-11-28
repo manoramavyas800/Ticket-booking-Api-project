@@ -1,0 +1,27 @@
+package org.telusko.ticketbookingapi;
+
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.servers.Server;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+// url -> http://localhost:8484/TicketBookingApi/swagger-ui/index.html#/TicketBookingApi/getTicket
+@SpringBootApplication
+@OpenAPIDefinition(
+        info=@Info(
+                title="TicketBooking api",
+                version ="v1.0",
+                description="This API will Book and Generate Ticket"
+        ),
+        servers=@Server(
+                url="http://localhost:8484/TicketBookingApi",
+                description="This API is deployed in the followed url"
+        )
+)
+public class TicketBookingApiApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(TicketBookingApiApplication.class, args);
+	}
+
+}
