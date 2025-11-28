@@ -1,0 +1,8 @@
+package org.telusko.ticketbookingapi.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import org.telusko.ticketbookingapi.model.Passenger;
+@Repository
+public interface ITicketRepo extends JpaRepository<Passenger,Integer> {
+}
